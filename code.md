@@ -166,7 +166,7 @@ Now if we run kubectl get nodes , then we will find nodes are not ready....so we
 kubectl apply  -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ``` 
 
-## At master nodes
+## At workers nodes
 Use the join cmd given by master node so that worker can connect....
 
 ## At Master node
