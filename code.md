@@ -56,15 +56,18 @@ cat  /etc/docker/daemon.json
 {
    "exec-opts": ["native.cgroupdriver=systemd"]
 }
-
-docker info | grep -i cgroup
-Cgroup Driver: systemd
 ``` 
  
 
 Now, restart docker
 ``` 
 systemctl restart docker
+``` 
+
+Now, check
+``` 
+docker info | grep -i cgroup
+o/p -  Cgroup Driver: systemd
 ``` 
 
 For routing       
@@ -133,7 +136,7 @@ systemctl enable --now kubelet
 Check driver of docker
 ``` 
 docker info | grep -i cgroup
-Cgroup Driver: cgroupfs
+- Cgroup Driver: cgroupfs
 ``` 
 
 Change the driver from cgroupfs  to  systemd
@@ -142,15 +145,18 @@ cat  /etc/docker/daemon.json
 {
    "exec-opts": ["native.cgroupdriver=systemd"]
 }
-
-docker info | grep -i cgroup
-Cgroup Driver: systemd
 ``` 
  
 
 Now, restart docker
 ``` 
 systemctl restart docker
+``` 
+
+Now, check
+``` 
+docker info | grep -i cgroup
+Cgroup Driver: systemd
 ``` 
 
 ## At Master node
