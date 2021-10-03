@@ -159,6 +159,24 @@ docker info | grep -i cgroup
 Cgroup Driver: systemd
 ``` 
 
+For Routing
+``` 
+yum install iproute-tc
+``` 
+
+Change the iptable 
+``` 
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+``` 
+
+Start the system  
+``` 
+sysctl --system
+``` 
+
 ## At Master node
 
 we have to create a token so that worker nodes can join the master node.
@@ -204,9 +222,3 @@ kubectl get svc
 ```
 
 Now you can take the public of any node weather master or slave with the exposed port and type on browser ….. you will landed to the wordpress login page and then enter password and username of the mysql database and hit the run installation button. your wordpress application is ready !!
-
-
-
-
-
-
